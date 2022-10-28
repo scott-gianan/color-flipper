@@ -5,19 +5,19 @@ const bodyColor = document.querySelector('body');
 const hexCodeText = document.querySelector('.hex-code-text');
 
 const getRandomHex = () => {
-    let hexColor = '#';
-    for (let i = 0; i < 6; i++) {
-        hexColor += hex[Math.round(Math.random()*(hex.length-1))];
-    }
-    console.log(typeof hexColor)
-    return hexColor;
+    return Math.round(Math.random()*(hex.length-1));
 }
 
 const changeColor = () => {
-    bodyColor.style.backgroundColor = getRandomHex();
-    hexCodeText.textContent = getRandomHex();
-    hexCodeText.style.color = getRandomHex();
+    let hexColor = '#';
+    for (let i = 0; i < 6; i++) {
+        hexColor += hex[getRandomHex()];
+    }
+    bodyColor.style.backgroundColor = hexColor;
+    hexCodeText.textContent = hexColor;
+    hexCodeText.style.color = hexColor;
+
 }
 
-btn.addEventListener("click", changeColor)
+btn.addEventListener("click", changeColor);
 
